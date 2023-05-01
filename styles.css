@@ -1,0 +1,223 @@
+input[type="checkbox"].toggle{
+    opacity: 0;
+    position: absolute;
+    left: -9000px;
+    top: -9000px;
+}
+
+/* Background for the toggle switch */
+input[type="checkbox"].toggle + label {
+    position: relative;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    color: green;
+}
+
+input[type="checkbox"].toggle:focus + label::before {
+    outline: 1px solid black;
+}
+
+/* Background for toggle switch before clicking */
+input[type="checkbox"].toggle + label::before {
+    content: "";
+    width: 2em;
+    height: 1em;
+    background-color: hsl(100, 60%, 60%);
+    border-radius: 1em;
+    margin-right: 0.5em;
+    transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+/* Toggle switch before clicking */
+input[type="checkbox"].toggle + label::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    content: "\2713";           /* html entity checkmark*/
+    font-size: 0.5em;
+    height: 0.9em;
+    left: 0.2em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: hsl(100, 60%, 90%);
+    color: green;
+    border-radius: 1em;
+    transition: background-color 200ms ease-in-out, transform 200ms ease-in-out;
+    /*animation: check-fade 200ms ease-in-out reverse;*/
+}
+
+/* Toggle switch after clicking */
+input[type="checkbox"].toggle:checked + label::before {
+    background-color: hsl(0, 80%, 90%);
+}
+
+/* Toggle switch after clicking */
+input[type="checkbox"].toggle:checked + label::after {
+    content: "\2715";           /* html entity x*/
+    color: white;
+    transform: translateX(100%);
+    background-color: hsl(0, 80%, 60%);
+    /*animation: check-fade 200ms ease-in-out forwards;*/
+}
+
+/* Toggle text after clicking */
+input[type="checkbox"].toggle:checked + label {
+    color: red;
+}
+
+/* Label text for disabled button */
+input[type="checkbox"].toggle:disabled + label {
+    color: #777;
+}
+
+/* Label text for disabled button */
+input[type="checkbox"].toggle:disabled + label::before {
+    background-color: #CCC;
+    color: grey;
+}
+
+/* Toggle text after clicking */
+input[type="checkbox"].toggle:disabled + label::after {
+    background-color: #777;
+    content: "\2715";
+    color: grey;
+}
+
+/* Animation for the html entities - not used */
+@keyframes check-fade {
+    0%{
+        opacity: 1;
+        content: "\2713";
+    }
+
+    50%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+        content: "\2715";
+    }
+}
+
+/* Main Section */
+.main {
+    background-color: #141414;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    background-color: #141414;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.main__content h1{
+    font-size: 4rem;
+    background-color: #6397FF;
+    background-image: linear-gradient(to top, #4373CB 0%, #9FBBF9 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.main__content p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.main__content h2 {
+    margin-top: 1rem;
+    margin-left: auto;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #9FBBF9;
+}
+
+.main__card {
+    display: flex;
+    column-gap: 100px;
+    margin: 1rem;
+    height: 525px;
+    width: 400px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.main__maschine:hover {
+    transform: scale(1.075);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.main__trockner:hover {
+    transform: scale(1.075);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.main__img--container {
+    text-align: center;
+}
+
+#main__img {
+    height: 80%;
+    width: 80%;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .main__container {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 90vh;
+    }
+
+    .main__content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .main__content h1 {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+        margin-right: 5rem;
+    }
+
+    .main__content p {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        margin-right: 5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main__content h1 {
+        font-size: 2rem;
+        margin-top: 3rem;
+        margin-right: 5rem;
+    }
+
+    .main__content p {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        margin-right: 5rem;
+    }
+}
